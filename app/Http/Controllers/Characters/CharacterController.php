@@ -14,7 +14,7 @@ class CharacterController extends Controller
                                 ->when($request->species, function ($query, $species) {
                                     $query->where('species', $species);
                                 })
-                                ->get();
+                                ->paginate(100);
         $name = $request->name;
         $species =$request->species;
         return view('characters.index', compact('characters', 'name', 'species') );
